@@ -17,7 +17,7 @@ These are what you can do with this program.
   - Converting a.a. abbreviation (1 letter abbreviation <-> 3 letter abbreviation)
 
 
-* How to use this program
+How to use this program
 Choose what you want to do on the left side
 ->
 Press choose button
