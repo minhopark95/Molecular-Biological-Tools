@@ -27,4 +27,6 @@ Choose what you want to do on the left side
 -> Enter all required things
 -> Press run button
 
+If you want, you can make .exe file with Pyinstaller.
+
 Thank you :) I hope that this is helpful
