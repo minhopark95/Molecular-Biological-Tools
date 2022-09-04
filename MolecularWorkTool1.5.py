@@ -7,16 +7,16 @@ root=Tk()
 root.title('Molecular Work Tool')
 root.geometry("1150x600+100+50")
 
-Label(root, text='안녕하세요 교수님!').grid(row=0,column=2)
-wframe=LabelFrame(root, text='어떤 작업을 하실 생각이신가요?')
+Label(root, text='Hello!').grid(row=0,column=2)
+wframe=LabelFrame(root, text='Which work do you want to do?')
 wframe.grid(row=1, column=0)
-fframe=LabelFrame(root, text='첫 번째 sequence')
+fframe=LabelFrame(root, text='Sequence (or subject sequence)')
 fframe.grid(row=2, column=2)
-sframe=LabelFrame(root, text='찾으실 sequence (or 두 번째 sequence)')
+sframe=LabelFrame(root, text='Sequence you want to find (or query sequence)')
 sframe.grid(row=4, column=2)
-tframe=LabelFrame(root, text='결과')
+tframe=LabelFrame(root, text='Result')
 tframe.grid(row=2, column=5,rowspan=3, padx=10)
-Label(root, text='감사합니다 :D').grid(row=8,column=2)
+Label(root, text='Thank you :D').grid(row=8,column=2)
 
 eframe=Frame(root)
 aframe=Frame(root)
@@ -28,25 +28,25 @@ threeto1={'Ala':'A', 'Ser':'S','Cys':'C','Thr':'T','Val':'V','Met':'M','Trp':'W'
 oneto3={'A':'Ala', 'S':'Ser','C':'Cys','T':'Thr','V':'Val','M':'Met','W':'Trp','Y':'Tyr','N':'Asn','D':'Asp','Q':'Gln','E':'Glu','H':'His','G':'Gly','P':'Pro','K':'Lys','L':'Leu','I':'Ile','F':'Phe','R':'Arg'}
 base=['A','T','U','C','G','N']
 
-work=['DNA seq 길이 확인', 'DNA seq 위치 확인','RNA,DNA moles <-> mass','Complementray seq 생성','DNA reverse로 배열','Translation', '간단한 DNA seq alignment', 'a.a. 서열 길이 확인','a.a. 위치 확인', 'a.a. 약자 변환']
+work=['Counting DNA length', 'Finding DNA seq location','RNA,DNA moles <-> mass','Creating complementray seq','Arranging in reverse order','Translation', 'Simple DNA seq alignment', 'Counting a.a. seq length ','Finding a.a. seq location', 'Converting a.a. abbreviation']
 cb=ttk.Combobox(wframe, width=22, height=5, values=work, state='readonly')
-cb.set('작업을 선택해 주세요')
+cb.set('Please choose')
 cb.grid(row=0,column=0)
 
 letter=['1 letter','3 letters']
 cb1=ttk.Combobox(wframe, height=2, values=letter, state='readonly')
-cb1.set('아미노산 약자 개수')
+cb1.set('a.a. abbreviation type')
 
-DNAform=['ssDNA로 각각', 'dsDNA로']
+DNAform=['separately', 'dsDNA']
 cb2=ttk.Combobox(wframe, height=2, values=DNAform, state='readonly')
-cb2.set('나타낼 DNA 형식')
+cb2.set('How to be shown')
 
-findingmethod=['서열의 위치', '위치의 서열']
+findingmethod=['location of seq', 'seq of the location']
 cb3=ttk.Combobox(wframe,height=2, values=findingmethod, state='readonly')
-cb3.set('찾을 방식')
-esframe=LabelFrame(eframe,text='시작')
+cb3.set('What to find')
+esframe=LabelFrame(eframe,text='start')
 esframe.grid(row=0,column=0)
-etframe=LabelFrame(eframe,text='끝')
+etframe=LabelFrame(eframe,text='end')
 etframe.grid(row=1,column=0)
 es=ttk.Entry(esframe, width=8)
 es.pack()
@@ -56,9 +56,9 @@ et.pack()
 caltype=['dsDNA','ssDNA','ssRNA']
 calmethod=['mass -> moles','moles -> mass']
 caltcb=ttk.Combobox(wframe,height=3, values=caltype, state='readonly')
-caltcb.set('NA type')
+caltcb.set('nucleic acid type')
 calmcb=ttk.Combobox(wframe,height=2, values=calmethod, state='readonly')
-calmcb.set('변환 방식')
+calmcb.set('What to convert')
 lnframe=LabelFrame(lframe,text='length(bp)')
 lnframe.grid(row=0,column=0)
 ln=ttk.Entry(lnframe,width=10)
@@ -75,7 +75,7 @@ mass.pack()
 
 convert=['1 to 3', '3 to 1']
 cb4=ttk.Combobox(wframe,height=2, values=convert, state='readonly')
-cb4.set('변환 방식')
+cb4.set('What to convert')
 
 matframe=LabelFrame(aframe,text='match score')
 matframe.grid(row=0,column=0)
@@ -93,14 +93,15 @@ gap.pack()
 sb1=Scrollbar(fframe)
 sb1.pack(side='right',fill='y')
 t=Text(fframe, width=54, height=20, yscrollcommand=sb1.set)
-t.insert(END,'대소문자 구분 없이 DNA 혹은 RNA 혹은 아미노산 서열을 입력해주세요 :D\n')
+t.insert(END,'Please enter DNA or RNA or a.a. seq here :D\n')
+t.insert(END,'(case-insensitive)\n')
 t.insert(END,'\n')
-t.insert(END,'숫자는 들어가도 괜찮습니다\n')
-t.insert(END,'RNA 서열은 DNA 서열로 변환됩니다\n')
-t.insert(END,'아미노산 서열은 1 letter 약자로 입력해주세요\n')
+t.insert(END,"Numbers will be deleted automatically\n")
+t.insert(END,'RNA seq will be converted to DNA seq automatically\n')
+# t.insert(END,'a.a. seq 1 letter 약자로 입력해주세요\n')
 t.insert(END,'\n')
 t.insert(END,'\n')
-t.insert(END,'원하시는 작업을 고르신 후 선택 버튼을 누르고 Clear를 눌러주세요')
+# t.insert(END,'원하시는 작업을 고르신 후 선택 버튼을 누르고 Clear를 눌러주세요')
 t.pack(side='left')
 sb1.config(command=t.yview)
 
@@ -119,7 +120,7 @@ def a():
     tem3=[z for z in i if z.isalpha()==True]
     i=''.join(tem3)
     
-    if w!=8:
+    if w!=9:
         i=i.upper()
     tem1=[]
     for z in range(len(i)):
@@ -213,17 +214,17 @@ def a():
             else:
                 error1.append(i)
         if len(error1)>0:
-            msgbox.showerror('Error', '첫 번째 sequence에 염기가 아닌 문자가 들어있습니다!')
+            msgbox.showerror('Error', 'There is character that is not base in your sequence!')
         for i in seq2:
             if i in base: continue
             else:
                 error2.append(i)
         if len(error2)>0:
-            msgbox.sowerror('Error','찾으실 sequence (or 두 번째 sequqnece)에 염기가 아닌 문자가 들어있습니다!')
+            msgbox.showerror('Error','There is character that is not base in the sequence you want to find!')
             
         
     if w==0:
-        p.insert(END, 'DNA 서열의 길이\n')
+        p.insert(END, 'The length of DNA seq\n')
         p.insert(END, '\n')
         p.insert(END, len(seq1))
         p.insert(END, '\n\n')
@@ -427,6 +428,7 @@ def a():
                 p.insert(END, '\n')
                 j+=1
             p.insert(END, pseq[5*j:len(pseq)])
+            p.insert(END, '\n')
             p.insert(END, '\n')
             j=0
             while j<len(pseq)//5:
@@ -856,7 +858,7 @@ def a():
                 p.insert(END,SEQ[i][1])
                 p.insert(END,'\n')
                 p.insert(END, '\n')
-            p.insert(END,'그 외 '+str(len(SEQ)-5)+'개의 seq가 있습니다.')
+            p.insert(END,'There are another '+str(len(SEQ)-5)+' sequences')
         else:
             for i in range(len(SEQ)):
                 p.insert(END,SEQ[i][0])
@@ -868,7 +870,7 @@ def a():
 
         
     if w==7:
-        p.insert(END, '아미노산 서열의 길이\n')
+        p.insert(END, 'The length of a.a. seq\n')
         p.insert(END, '\n')
         p.insert(END, len(seq1))
         p.config(state=DISABLED)
@@ -937,7 +939,7 @@ def a():
                 else:
                     errora.append(i)
             if len(errora)>0:
-                msgbox.showerror('Error','아미노산의 이름이 잘못된 것이 있었습니다.')
+                msgbox.showerror('Error','There is wrong a.a. name in your sequence!')
             
             tseq1=[]
             for z in seq1:
@@ -973,7 +975,7 @@ def a():
                 else:
                     errora.append(z)
             if len(errora)>0:
-                msgbox.showerror('Error','아미노산의 이름이 잘못된 것이 있습니다.')
+                msgbox.showerror('Error','There is wrong a.a. name in your sequence!')
             tseq1=''.join(tseq1)
 
             i=0
@@ -1000,17 +1002,19 @@ def a():
 b1=Button(root, padx=4, pady=4, text='Clear', command=clear)
 b1.grid(row=3, column=3, padx=5)
 
-b2=Button(root, padx=4, pady=4, text='실행', command=a)
+b2=Button(root, padx=4, pady=4, text='run', command=a)
 b2.grid(row=3, column=4, padx=5)
 
 sb2=Scrollbar(sframe)
 sb2.pack(side='right',fill='y')
 tt=Text(sframe, width=54, height=10,yscrollcommand=sb2.set)
-tt.insert(END, '찾으실 서열을 입력해 주세요\n')
-tt.insert(END, '혹은 \n')
-tt.insert(END,'alignment할 두 번째 서열을 입력해주세요')
+tt.insert(END, 'Please enter the seq you want to find\n')
+tt.insert(END, 'Or \n')
+tt.insert(END,'Query seq for seq alignment')
 tt.pack(side='left')
 sb2.config(command=tt.yview)
+
+
 
 def b():
     global w
@@ -1088,12 +1092,25 @@ def b():
         lframe.grid(row=2,column=0)
         
     
-b3=Button(wframe, padx=2, pady=2, text='선택', command=b)
+b3=Button(wframe, padx=2, pady=2, text='choose', command=b)
 b3.grid(row=0, column=1)
 
 psb=Scrollbar(tframe)
 psb.pack(side='right',fill='y')
 p=Text(tframe, width=54, height=33,yscrollcommand=psb.set)
+p.insert(END,'How to use this program\n')
+p.insert(END,'\n')
+p.insert(END,'Choose what you want to do\n')
+p.insert(END,'->\n')
+p.insert(END,'Press choose button\n')
+p.insert(END,'->\n')
+p.insert(END,'Choose option\n')
+p.insert(END,'->\n')
+p.insert(END,'Press clear button\n')
+p.insert(END,'->\n')
+p.insert(END,'Enter all required things\n')
+p.insert(END,'->\n')
+p.insert(END,'Press run button\n')
 p.config(state=DISABLED)
 p.pack(side='left')
 psb.config(command=p.yview)
