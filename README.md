@@ -18,7 +18,7 @@ These are what you can do with this program.
 
 
 
-How to use this program
+--How to use this program
 
 Choose what you want to do on the left side
 -> Press choose button
