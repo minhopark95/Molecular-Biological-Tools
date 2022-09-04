@@ -17,17 +17,17 @@ These are what you can do with this program.
   - Converting a.a. abbreviation (1 letter abbreviation <-> 3 letter abbreviation)
 
 
-How to use this program
-Choose what you want to do on the left side
-->
-Press choose button
-->
-Choose option
-->
-Press clear button
-->
-Enter all required things
-->
-Press run button
+How to use this program\n
+Choose what you want to do on the left side\n
+->\n
+Press choose button\n
+->\n
+Choose option\n
+->\n
+Press clear button\n
+->\n
+Enter all required things\n
+->\n
+Press run button\n
 
 Thank you :) I hope that this is helpful
