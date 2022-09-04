@@ -15,7 +15,8 @@ These are what you can do with this program.
   - Counting a.a. seq length
   - Finding a.a. seq location (seq number -> seq  or  seq you want to find -> seq number)
   - Converting a.a. abbreviation (1 letter abbreviation <-> 3 letter abbreviation)
-  
+
+
 * How to use this program
 Choose what you want to do on the left side
 ->
