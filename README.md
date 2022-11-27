@@ -6,14 +6,14 @@ This program is for Molecular biological works such as molecular cloning, DNA de
 
 --This program can be used to
   - Counting DNA length and calculating GC content
-  - Finding DNA seq location (seq number -> seq  or  seq you want to find -> seq number)
+  - Finding DNA seq location (seq number <-> seq you want to find)
   - RNA, DNA moles <-> mass
-  - Creating complementray seq (separately or dsDNA)
-  - Arranging in reverse order
+  - Generating complementray seq (separately or dsDNA)
+  - Generating reverse seq
   - Translation
   - Simple DNA seq alignment
-  - Counting a.a. seq length
-  - Finding a.a. seq location (seq number -> seq  or  seq you want to find -> seq number)
+  - Counting a.a. seq length and calculating molecular weight
+  - Finding a.a. seq location (seq number <-> seq you want to find)
   - Converting a.a. abbreviation (1 letter abbreviation <-> 3 letter abbreviation)
 
 
