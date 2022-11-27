@@ -4,7 +4,7 @@ Hello!
 
 This program is for Molecular biological works such as molecular cloning, DNA design, primer design, etc.
 
---These are what you can do with this program.
+--These are what this program can do.
   - Counting DNA length and calculating GC content
   - Finding DNA seq location (seq number -> seq  or  seq you want to find -> seq number)
   - RNA, DNA moles <-> mass
