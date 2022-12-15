@@ -11,7 +11,7 @@ This program is for Molecular biological works such as molecular cloning, DNA de
   - Generating complementray seq (separately or dsDNA)
   - Generating reverse seq
   - Translation
-  - Simple DNA seq alignment
+  - Simple DNA, a.a. seq alignment
   - Counting a.a. seq length and calculating molecular weight
   - Finding a.a. seq location (seq number <-> seq you want to find)
   - Converting a.a. abbreviation (1 letter abbreviation <-> 3 letter abbreviation)
